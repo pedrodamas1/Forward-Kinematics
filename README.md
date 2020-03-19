@@ -3,8 +3,6 @@ Practical application of forward kinematics
 
 ![](Images/Chain_example.png)
 
-![](Images/Tentacle_example.png)
-
 To incorporate this add-on widget simply import the module and place as many gauges as you wish into tkinter frames.
 Because object-oriented programming was used, this code is versatile in handling the multiplte gauge instances.
 
