@@ -1,13 +1,14 @@
 # Forward-Kinematics
-Practical application of forward kinematics
+Practical application of forward kinematics.
+
+These two scripts apply matrix methods, through object oriented programming, to make moving chains and tentacles. The paradigm of this project is that chains and tentacles are objects themselves, made out of links and rings, respectively, which are objects too.
+
+Below you can see an example of a chain.
 
 ![](Images/Chain_example.png)
 
-To incorporate this add-on widget simply import the module and place as many gauges as you wish into tkinter frames.
-Because object-oriented programming was used, this code is versatile in handling the multiplte gauge instances.
+Below you can see an example of a tentacle.
 
-```python
-import tkinter as tk 
-from tkGauge import *
-import random
-```
+![](Images/Tentacle_example.png)
+
+This is work in progress.
