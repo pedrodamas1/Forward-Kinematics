@@ -2,9 +2,10 @@
 # rings make tentacles
 
 import numpy as np 
+import tkinter
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
-
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.figure import Figure
 
 class Link:
 
@@ -86,7 +87,7 @@ class Chain:
 
 
 
-N = 3
+N = 5
 thisChain = Chain(N, 1)
 thisChain.angles = np.random.rand(3,N)*-3
 thisChain.assemble()
@@ -102,33 +103,29 @@ def update_plot():
 	x,y,z = thisChain.posPlot
 	ax.clear()
 	ax.plot(x,y,z, 'bo-')
+	ax.set_xlim(-3, 5)
+	ax.set_ylim(-3, 5)
+	ax.set_zlim(-3, 5)
 	canvas.draw()
 	root.after(2000, update_plot)
 	return None
 
 
 
-import tkinter
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-from matplotlib.figure import Figure
+
 
 root = tkinter.Tk()
-root.wm_title("Embedding in Tk")
 
 fig = Figure(figsize=(5, 4), dpi=100)
 
-canvas = FigureCanvasTkAgg(fig, master=root)  # A tk.DrawingArea.
+canvas = FigureCanvasTkAgg(fig, master=root) 
 canvas.draw()
 
 ax = fig.add_subplot(111, projection="3d")
 ax.plot(x,y,z, 'bo-')
-ax.plot(2*x+1,y,z, 'bo-')
 
-toolbar = NavigationToolbar2Tk(canvas, root)
-toolbar.update()
+NavigationToolbar2Tk(canvas, root).update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
-
 
 ax.set_xlim(-3, 5)
 ax.set_ylim(-3, 5)
